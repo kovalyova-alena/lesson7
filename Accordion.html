@@ -18,22 +18,29 @@
  	</style>
  </head>
  <body>
- 	<a href>Кликни меня</a>
+ 	<a href="#">Кликни меня</a>
  	<div class="display hide">
  		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis velit ut neque nihil molestias blanditiis eos, rerum dolores suscipit a! Dolores sint in molestiae maxime laboriosam optio provident, perspiciatis nesciunt.
  	</div>
+ 	<button>Удалить обработчик</button>
 
  	<script>
  	 window.addEventListener("load", function (){
- 		var link = document.querySelector('a');
+ 		var link = document.querySelector('a'),
+ 		    button = document.querySelector('button');
+
  		link.addEventListener('click', toggle);
 
  		function toggle (e) {
  			e.preventDefault();
  			var div = document.querySelector('div');
  			div.classList.toggle('hide');
-
  		}
+
+ 		button.addEventListener("click", removeEvList);
+		function removeEvList () {
+			link.removeEventListener('click', toggle);
+		}
  	});
  	</script>
  </body>
