@@ -1,0 +1,77 @@
+<!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления. Используйте только один обработчик.
+Делегорование -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5 text clocks</title>
+	<style>
+		#container div {
+			float: left;
+			position: relative;
+			display: block;
+			width: 20%;
+		}
+		.removeListener {
+			clear: both;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit
+			<button>Удалить блок</button>
+		</div>
+		<div>
+			 Officiis dicta temporibus, fugiat animi quasi doloremque Officiis dicta temporibus, fugiat animi quasi doloremque 
+			<button>Удалить блок</button>
+		</div>
+		<div>
+			Lnesciunt unde exercitationem similique molestiae fuga repudiandae eligendi nam quaerat ex mollitia.
+			Lnesciunt unde exercitationem similique molestiae fuga repudiandae eligendi nam quaerat ex mollitia.
+			<button>Удалить блок</button>
+		</div>
+		<div>
+			Lmolestiae fuga repudiandae eligendi nam quaerat ex mollitia. ga repudiandae eligendi nam quaerat ex mollitia.
+			<button>Удалить блок</button>
+		</div>
+		<div>
+			Lnesciunt unde exercitationem similique molestiae fuga repudiandae eligendi nam quaerat ex mollitia.sit amet, consectetur adipisicing elit. Officiis dicta temporibus
+			<button>Удалить блок</button>
+		</div>
+	</div>
+	<button class="removeListener">Удалить обработчик</button>
+	<script>
+		var container = document.querySelector('#container');
+		var removeListener = document.querySelector('.removeListener');
+
+		container.addEventListener('click', removeBlock);
+		
+		function removeBlock (e) {
+			var target = e && e.target || e.srcElement;
+			if (target.tagName != 'BUTTON'){
+				return;
+			} else {
+				this.removeChild(target.parentElement);
+			}
+		}
+
+		removeListener.addEventListener("click", removeEvList);
+		function removeEvList () {
+			container.removeEventListener('click', removeBlock);
+		}
+		
+
+
+	 
+		 		
+		 	
+
+		
+	</script>
+</body>
+</html>

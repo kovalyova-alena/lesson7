@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slider</title>
+	<style type="text/css">
+		ul {
+			list-style: none;
+		}
+
+		.slide {
+		    position: absolute;
+		    left: 0px;
+		    top: 0px;
+		    width: 30%;
+		    height: 100%;
+		    opacity: 0;
+		    z-index: 1;
+
+		    -webkit-transition: opacity 1s;
+		    -moz-transition: opacity 1s;
+		    -o-transition: opacity 1s;
+		    transition: opacity 1s;
+		}
+
+		.showing {
+		    opacity: 1;
+		    z-index: 2;
+		}
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="product1.jpg" class="slide showing" alt=""></li>
+		<li><img src="product2.jpg" class="slide" alt=""></li>
+		<li><img src="product3.jpg" class="slide"  alt=""></li>
+		<li><img src="product4.jpg" class="slide"  alt=""></li>
+	</ul>
+
+	<script>
+		var totalImg = document.querySelectorAll('img'),
+		    currentSlide = 0;
+		    var slideInterval = setInterval(nextSlide,2000);
+
+		function nextSlide() {
+			totalImg[currentSlide].className = 'slide';
+			currentSlide = (currentSlide+1)%totalImg.length;
+			totalImg[currentSlide].className = 'slide showing';
+		}
+	</script>
+</body>
+</html>
