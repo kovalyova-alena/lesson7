@@ -1,0 +1,40 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт. При клике на ссылку див пропадает, если повторно нажать ссылку див и текст должны вернуться. Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>link and div</title>
+ 	<style>
+ 	    .display {
+			display: block;
+ 		}
+		.hide {
+ 			display: none;
+ 		}
+
+ 	</style>
+ </head>
+ <body>
+ 	<a href>Кликни меня</a>
+ 	<div class="display hide">
+ 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis velit ut neque nihil molestias blanditiis eos, rerum dolores suscipit a! Dolores sint in molestiae maxime laboriosam optio provident, perspiciatis nesciunt.
+ 	</div>
+
+ 	<script>
+ 	 window.addEventListener("load", function (){
+ 		var link = document.querySelector('a');
+ 		link.addEventListener('click', toggle);
+
+ 		function toggle (e) {
+ 			e.preventDefault();
+ 			var div = document.querySelector('div');
+ 			div.classList.toggle('hide');
+
+ 		}
+ 	});
+ 	</script>
+ </body>
+ </html>
